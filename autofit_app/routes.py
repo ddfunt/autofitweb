@@ -1,8 +1,8 @@
 from flask import render_template, redirect, flash, url_for, request
-from app import app, db
+from autofit_app import app, db
 from .forms import LoginForm, RegistrationForm, ConstantsForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User, Post
+from autofit_app.models import User, Post
 from werkzeug.urls import url_parse
 
 from autofit.engine.tools import find_matches
