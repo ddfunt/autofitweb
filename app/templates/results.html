@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <strong>Submitted Values:  </strong>
+    {% for sub in submitted %}
+    {{ sub }},
+{% endfor %}
+    <p>
+    <strong>Results:</strong>
+<br>
+    <table>
+    <tr>
+        <th>Name</th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+    </tr>
+    {% for result in results %}
+        <tr>
+            <td>{{ result.item.name  }}</td>
+              <td>    {{ result.item.A }}</td>
+            <td>{{ result.item.B }}</td>
+         <td>{{ result.item.C }}
+        </tr>
+    {% endfor %}
+    </table>
+    </p>
+{% endblock %}
