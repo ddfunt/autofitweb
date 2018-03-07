@@ -29,7 +29,7 @@ class Chisq:
         return sum(self.error) > other
 
     def __repr__(self):
-        return f'Chisq({sum(self.error)})'
+        return 'Chisq({})'.format(sum(self.error))
 
 
 def find_matches(a, b, c, max_response=10):
