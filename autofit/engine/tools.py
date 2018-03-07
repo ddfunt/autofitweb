@@ -15,7 +15,7 @@ class Chisq:
     def total_error(self):
         return round(sum(self.error), 4)
 
-    def calc_error(self, *args,):
+    def calc_error(self, *args, **kwargs):
         chisq = [round(((a-b)**2) / b, 4) for a, b in zip(*args)]
         return chisq
 
