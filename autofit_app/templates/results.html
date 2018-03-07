@@ -13,6 +13,7 @@
         <th>A</th>
         <th>B</th>
         <th>C</th>
+        <th>Structure</th>
     </tr>
     {% for result in results %}
         <tr>
@@ -20,6 +21,7 @@
               <td>    {{ result.item.A }}</td>
             <td>{{ result.item.B }}</td>
          <td>{{ result.item.C }}
+        <td><img src="http://www.chemspider.com/ImagesHandler.ashx?id={{ result.item.chemspyder_id }}"></td>
         </tr>
     {% endfor %}
     </table>
