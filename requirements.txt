@@ -1,5 +1,4 @@
 alembic==0.9.8
-autofit==0.1
 click==6.7
 colorama==0.3.9
 Flask==0.12.2
