@@ -1,4 +1,4 @@
-from autofit_app import app, db
+#from autofit_app import app, db
 from autofit_app.models import User, Post
 from flask import Flask
 from config import Config
