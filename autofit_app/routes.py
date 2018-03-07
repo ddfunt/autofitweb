@@ -15,30 +15,23 @@ def index():
     form = ConstantsForm()
     if form.validate_on_submit():
         print('got here')
-        #post = Post(body=form.post.data, author=current_user)
-        #db.session.add(post)
-        #db.session.commit()
-        #flash('Your post is now live!')
+
         submitted = (form.A.data, form.B.data, form.C.data)
         results = find_matches(form.A.data, form.B.data, form.C.data)
         return render_template("results.html", title='Results', form=form,
-                               results=results, submitted=submitted
-
-                               )
+                               results=results, submitted=submitted)
         return redirect(url_for('results'))
 
-    return render_template("index.html", title='Home Page', form=form,
-
-                       )
+    return render_template("index.html",
+                           title='Home Page',
+                           form=form)
 
 @app.route('/results', methods=['GET', 'POST'])
 @login_required
 def results():
     form = ConstantsForm()
 
-    return render_template("results.html", title='Results', form=form,
-
-                       )
+    return render_template("results.html", title='Results', form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -56,12 +49,14 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(next_page)
+
     return render_template('login.html', title='Sign In', form=form)
 
 
 @app.route('/logout')
 def logout():
     logout_user()
+
     return redirect(url_for('index'))
 
 
@@ -77,4 +72,5 @@ def register():
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
+
     return render_template('register.html', title='Register', form=form)

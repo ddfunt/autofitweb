@@ -1,32 +1,32 @@
 from autofit.engine.structure import Atom, Structure
 from autofit.engine.db_base import get_session
-import time
-
+import math
 
 
 
 class Chisq:
 
+
     def __init__(self, *args, item=None):
         self.error = self.calc_error(*args)
         self.item = item
 
+    @property
+    def total_error(self):
+        return round(sum(self.error), 4)
 
-    def calc_error(self, *args, total=False):
-        chisq = [(a-b)**2 for a, b in zip(*args)]
-        if total:
-            return sum(chisq)
-        else:
-            return chisq
+    def calc_error(self, *args,):
+        chisq = [round(((a-b)**2) / b, 4) for a, b in zip(*args)]
+        return chisq
 
     def __lt__(self, other):
-        return sum(self.error) < other
+        return self.total_error < other
 
     def __eq__(self, other):
-        return sum(self.error) == other
+        return self.total_error == other
 
     def __gt__(self, other):
-        return sum(self.error) > other
+        return self.total_error > other
 
     def __repr__(self):
         return f'Chisq({sum(self.error)})'
