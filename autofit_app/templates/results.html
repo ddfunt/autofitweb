@@ -4,26 +4,39 @@
     {% for sub in submitted %}
     {{ sub }},
 {% endfor %}
-    <p>
+    <p><br></p>
     <strong>Results:</strong>
 <br>
-    <table>
-    <tr>
-        <th>Name</th>
-        <th>A</th>
-        <th>B</th>
-        <th>C</th>
-        <th>Structure</th>
-    </tr>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>Total Chisq</th>
+            <th>Structure</th>
+        </tr>
+    </thead>
+    <tbody>
     {% for result in results %}
         <tr>
-            <td>{{ result.item.name  }}</td>
-              <td>    {{ result.item.A }}</td>
-            <td>{{ result.item.B }}</td>
-         <td>{{ result.item.C }}
+            <td><strong>{{ result.item.name  }}</strong></td>
+            <td>{{ result.item.A|round(4) }}    </td>
+            <td>{{ result.item.B|round(4) }}    </td>
+            <td>{{ result.item.C|round(4) }}    </td>
+            <td></td>
         <td><img src="http://www.chemspider.com/ImagesHandler.ashx?id={{ result.item.chemspyder_id }}"></td>
         </tr>
+        <tr>
+        <td>     Chi sq:</td>
+        <td>{{ result.error[0] }}</td>
+        <td>{{ result.error[1] }}</td>
+        <td>{{ result.error[2] }}</td>
+        <td>{{ result.total_error }}</td>
+        </tr>
     {% endfor %}
+    </tbody>
     </table>
-    </p>
+
 {% endblock %}

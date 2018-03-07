@@ -1,12 +1,11 @@
-<html>
-    <head>
-        {% if title %}
-        <title>{{ title }} - microblog</title>
-        {% else %}
-        <title>autofit matcher</title>
-        {% endif %}
-    </head>
-    <body>
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+    {% if title %}{{ title }} - Microblog{% else %}Welcome to Microblog{% endif %}
+{% endblock %}
+
+{% block navbar %}
+
+    <nav class="navbar navbar-default">
             <div>
                 Autofit Matcher:
                 <a href="{{ url_for('index') }}">Home</a>
@@ -16,7 +15,8 @@
                 <a href="{{ url_for('logout') }}">Logout</a>
                 {% endif %}
             </div>
-        <hr>
+    </nav>
+{% endblock %}
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>
@@ -27,5 +27,4 @@
         {% endif %}
         {% endwith %}
         {% block content %}{% endblock %}
-    </body>
-</html>
+
