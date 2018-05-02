@@ -4,7 +4,7 @@ from .forms import LoginForm, RegistrationForm, ConstantsForm
 from flask_login import current_user, login_user, logout_user, login_required
 from autofit_app.models import User, Post
 from werkzeug.urls import url_parse
-
+from flask import jsonify
 from autofit.engine.tools import find_matches
 
 
@@ -58,6 +58,10 @@ def logout():
     logout_user()
 
     return redirect(url_for('index'))
+
+@app.route('/jsontest')
+def jsontest():
+    return jsonify({'thing': 'Words are cool'})
 
 
 @app.route('/register', methods=['GET', 'POST'])
