@@ -1,6 +1,6 @@
 {% extends 'bootstrap/base.html' %}
 {% block title %}
-    {% if title %}{{ title }} - Microblog{% else %}Welcome to Microblog{% endif %}
+    {% if title %}{{ title }}Autofit Matcher{% endif %}
 {% endblock %}
 
 {% block navbar %}
@@ -14,6 +14,8 @@
                 {% else %}
                 <a href="{{ url_for('logout') }}">Logout</a>
                 {% endif %}
+            <img src="{{ url_for('static', filename='brightspec_logo_RGB.jpg') }}" style="float:right;height:62px;">
+
             </div>
     </nav>
 {% endblock %}
@@ -26,5 +28,10 @@
         </ul>
         {% endif %}
         {% endwith %}
-        {% block content %}{% endblock %}
+        {% block content %}
+
+
+        {% endblock content %}
+         these are words
+
 

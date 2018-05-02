@@ -33,3 +33,4 @@ class ConstantsForm(FlaskForm):
     B = FloatField('B', validators=[DataRequired()])
     C = FloatField('C', validators=[DataRequired()])
     submit = SubmitField('Submit')
+    #clear =
