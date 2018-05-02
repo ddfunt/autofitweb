@@ -43,7 +43,7 @@ def find_matches(a, b, c, max_response=10):
                 Structure.C <= (c + c * scaler) if c > 0 else None,
                 Structure.C >= (c * (1 - scaler)) if c > 0 else None)
     print(filters)
-    #filters = [f for f in filters if f]
+    filters = [f for f in filters if f is not None]
     response = session.query(Structure).filter( *filters
                                                 ).all()
     errors = [(Chisq((a,b,c), x.constants, item=x)) for x in response]
