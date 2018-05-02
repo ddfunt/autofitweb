@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+    {{ super() }}
     <strong>Submitted Values:  </strong>
     {% for sub in submitted %}
     {{ sub }},

@@ -2,19 +2,12 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
+    {{ super() }}
     <h1>Sign In</h1>
     <div class="col-md-4">
             {{ wtf.quick_form(form) }}
         </div>
 
-<div class="footer" style="position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: lightgrey;
-    color: black;
-    text-align: center;">
-  <p>&copy; BrightSpec 2018</p>
-</div>
+
 
 {% endblock %}

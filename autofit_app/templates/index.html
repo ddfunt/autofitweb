@@ -2,6 +2,7 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
+    {{ super() }}
     <h1>Hi, {{ current_user.username }}</h1>
     <div class="col-md-4">
             {{ wtf.quick_form(form) }}

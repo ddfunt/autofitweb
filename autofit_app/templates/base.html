@@ -29,9 +29,19 @@
         {% endif %}
         {% endwith %}
         {% block content %}
-
-
+        {{ super() }}
+        {%  block foot %}
+            <div class="footer" style="position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: lightgrey;
+                color: black;
+                text-align: center;">
+              <p>&copy; BrightSpec 2018</p>
+            </div>
+        {% endblock foot %}
         {% endblock content %}
-         these are words
+
 
 
