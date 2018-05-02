@@ -3,7 +3,9 @@
 
 {% block content %}
     {{ super() }}
-    <h1>Hi, {{ current_user.username }}</h1>
+    <h1>User: {{ current_user.username }}</h1>
+    <h5>Enter A,B,C rotational constants in MHz for your species of interest in the box below.</h5>
+    <h5>After hitting submit the system will return up to the top 10 closest matches to the entered rotational constants.</h5>
     <div class="col-md-4">
             {{ wtf.quick_form(form) }}
         </div>
