@@ -29,14 +29,8 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Please use a different email address.')
 
 class ConstantsForm(FlaskForm):
-    A = FloatField('A (MHz)', validators=[DataRequired()])
-    B = FloatField('B (MHz)', validators=[DataRequired()])
-    C = FloatField('C (MHz)', validators=[DataRequired()])
+    A = FloatField('A (MHz)', validators=[], default=6039.249)
+    B = FloatField('B (MHz)', validators=[], default=5804.909)
+    C = FloatField('C (MHz)', validators=[], default=2959.210)
     submit = SubmitField('Submit')
     #clear =
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.A.data = 6039.249
-        self.B.data = 5804.909
-        self.C.data = 2959.210
